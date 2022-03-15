@@ -15,9 +15,11 @@ graph TD
     G -->|`question` label applied| H
     I{triaging state}
     H -->|staff adds `pending-triage` label and initial category labels| I
-    I -->|successfully reproduced or identifies a need for documentation improvement| J[identified as a bug]
-    I --> K[identified as a feature request]
+    I -->|successfully reproduced unintentional behavior| J[bug is identified]
+    I --> K[feature request is identified]
     I --> L[question is answered]
+    I --> M[identified as a documentation issue]
+    M -->|staff applies `documentation` label| J
     O{triage complete state}
     J -->|staff applies `bug` label| O
     K -->|staff applies `feature-request` label| O
