@@ -20,10 +20,12 @@ graph TD
     I --> L[question is answered]
     I --> M[identified as a documentation issue]
     M -->|staff applies `documentation` label| J
+    N(staff removes `pending-triage` label)
+    J -->|staff applies `bug` label| N
+    K -->|staff applies `feature-request` label| N
+    L --> N
     O{triage complete state}
-    J -->|staff applies `bug` label| O
-    K -->|staff applies `feature-request` label| O
-    L --> O
+    N --> O
     P(issue is prioritized with p* label)
     Q(is duplicate? mark `duplicate`, close in favor of tracking existing report)
     O --> P
