@@ -1,5 +1,11 @@
 # GitHub Issue Triage Flowchart
 
+In the flowchart below, GitHub issues will be triaged into one of three issue types:
+
+- `bug`
+- `feature-request`
+- `question`
+
 ```mermaid
 graph TD
     A(Staff transfers issue from another repository) -->|staff manually adds `transferred` label| H[GitHub Issue List]
