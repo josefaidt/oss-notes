@@ -9,11 +9,13 @@ In the flowchart below, GitHub issues will be triaged into one of three issue ty
 ```mermaid
 graph TD
     A(Staff transfers issue from another repository) -->|staff manually adds `transferred` label| H[GitHub Issue List]
-    B(Customer creates an issue)
-    B --> D[from existing issue comment or `issues/new`]
-    B --> E[bug template]
-    B --> F[feature-request template]
-    B --> G[question template]
+    B(creates an issue)
+    subgraph "Customer"
+        B --> D[from existing issue comment or `issues/new`]
+        B --> E[bug template]
+        B --> F[feature-request template]
+        B --> G[question template]
+    end
     H[GitHub Issue List]
     D -->|no label applied| H
     E -->|no label applied| H
@@ -21,6 +23,18 @@ graph TD
     G -->|`question` label added| H
     I{triaging state}
     H -->|staff adds `pending-triage` label and initial category labels| I
+    subgraph Staff
+        I
+        J
+        K
+        L
+        M
+        N
+        O
+        P
+        Q
+        R
+    end
     I -->|successfully reproduced unintentional behavior| J[bug is identified]
     I --> K[feature request is identified]
     I --> L[question is answered]
